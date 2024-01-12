@@ -51,7 +51,7 @@ while compguess1 != userInput:
     print(compguess1)
     print("Was my guess higher or lower than your number??")
 if compguess1 == userInput:
-    print("My guess was"(compguess1))
+     print("My guess was", userInput)
     print("I WIN HAHAHAHAAHA")
     print("You Suck")
 
