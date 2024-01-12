@@ -1,0 +1,57 @@
+import random
+import math
+import time
+
+low = 1  # Start with 1
+high = 100
+
+print("Think of a number between 1 and 100")
+
+try:
+    userInput = int(input())
+except ValueError:
+    print("Enter a correct number dumbass")
+
+sc1 = "Hmmmmmm"
+sc2 = "I'm thinking...."
+dis = random.choice([sc1, sc2])
+print(dis)
+time.sleep(1.4)
+
+compguess1 = random.randint(low, high)
+print("My guess is....")
+print(compguess1)
+
+while compguess1 != userInput:
+    us1 = input("Type higher or lower: ").lower()
+
+    if us1 not in ["higher", "lower"]:
+        print("Invalid input. Please type 'higher' or 'lower'.")
+        continue  # Continue the loop to ask for input again
+
+    if us1 == "higher" and compguess1 > userInput:
+        high = compguess1 - 1
+    elif us1 == "lower" and compguess1 < userInput:
+        low = compguess1 + 1
+    else:
+        # Check if the user is trying to trick the system
+        if (us1 == "higher" and compguess1 < userInput) or (us1 == "lower" and compguess1 > userInput):
+            s1 = "Either me or you have some type of dementia, that is NOT the number you thought of"
+            s2 = "You think I'm retarded huh??? Don't try to TRICK me, that is NOT the number you thought of"
+            ds = random.choice([s1, s2])
+            print(ds)
+
+    # Update the guess based on the user's feedback
+    compguess1 = (low + high) // 2
+    if compguess1 == userInput:
+      break
+
+    print("My next guess is....")
+    time.sleep(1.4)
+    print(compguess1)
+    print("Was my guess higher or lower than your number??")
+if compguess1 == userInput:
+    print("My guess was"(compguess1))
+    print("I WIN HAHAHAHAAHA")
+    print("You Suck")
+
