@@ -4,7 +4,7 @@ import time
 
 low = 1  # Start with 1
 high = 100
-
+guesses=0
 print("Think of a number between 1 and 100")
 
 try:
@@ -23,7 +23,7 @@ print("My guess is....")
 print(compguess1)
 
 while compguess1 != userInput:
-    us1 = input("Type higher or lower: ").lower()
+    us1 = input("If my guess is higher or lower,type higher or lower: ").lower()
 
     if us1 not in ["higher", "lower"]:
         print("Invalid input. Please type 'higher' or 'lower'.")
@@ -42,7 +42,8 @@ while compguess1 != userInput:
             print(ds)
 
     # Update the guess based on the user's feedback
-    compguess1 = (low + high) // 2
+    compguess1 = low + (high - low +1 ) // 2
+    guesses +=1
     if compguess1 == userInput:
       break
 
@@ -54,4 +55,6 @@ if compguess1 == userInput:
     print("My guess was", userInput)
     print("I WIN HAHAHAHAAHA")
     print("You Suck")
+    print("I guessed a total of", guesses, "times")
+
 
